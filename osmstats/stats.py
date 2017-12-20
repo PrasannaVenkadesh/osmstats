@@ -3,16 +3,15 @@
 from lxml import etree
 
 class OSMStats(object):
-    
+
     def __init__(self, osm_file):
         self.osm_file = osm_file
-        self.xml_data = None
+        self.xml_data = etree.parse(self.osm_file)
         self.contributors = {}
         self.amenities = {}
-        
+
 
     def get_contributors(self):
-        self.xml_data = etree.parse(self.osm_file)
         root = self.xml_data.getroot()
         for element in root:
             if 'user' in element.keys():
@@ -23,8 +22,19 @@ class OSMStats(object):
         return self.contributors
 
     def count_amenities(self, name):
-        self.amenities[name] = len(self.xml_data.xpath(f"//tag[@v='{name}']"))
-        return self.amenities[name]
+        if name not in self.amenities.keys():
+            return len(self.xml_data.xpath(f"//tag[@v='{name}']"))
+        else:
+            return self.amenities[name]
+
+    def count_all_amenities(self):
+        if not self.amenities:
+            for tag in self.xml_data.xpath("//tag[@k='amenity']"):
+                if tag.attrib['v'] in self.amenities.keys():
+                    self.amenities[tag.attrib['v']] += 1
+                else:
+                    self.amenities[tag.attrib['v']] = 1
+        return self.amenities
 
 
 if __name__ == "__main__":
@@ -37,6 +47,12 @@ if __name__ == "__main__":
     total_contributors = len(p_contributors)
     print (f"Total Contributors: {total_contributors}")
 
-    # get total number of amenitiee
+    # count a particular amenity
     amenity_name = "cinema"
-    print (f"{amenity_name}: ", pondicherry.count_amenities(amenity_name))
+    print (pondicherry.count_amenities(amenity_name))
+
+    # get all amenities count by amenity
+    print (pondicherry.count_all_amenities())
+
+    # sum of all amenities
+    print (sum(pondicherry.amenities.values()))
