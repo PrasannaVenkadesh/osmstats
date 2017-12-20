@@ -10,15 +10,13 @@ class OSMStats(object):
         self.contributors = {}
         self.amenities = {}
 
-
     def get_contributors(self):
-        root = self.xml_data.getroot()
-        for element in root:
-            if 'user' in element.keys():
-                if element.attrib['user'] in self.contributors.keys():
-                    self.contributors[element.attrib['user']] += 1
+        if not self.contributors:
+            for user in self.xml_data.xpath("//@user"):
+                if user in self.contributors.keys():
+                    self.contributors[user] += 1
                 else:
-                    self.contributors[element.attrib['user']] = 1
+                    self.contributors[user] = 1
         return self.contributors
 
     def count_amenities(self, name):
