@@ -17,7 +17,7 @@ class OSMStats(object):
                     self.contributors[user] = 1
         return self.contributors
 
-    def count_amenities(self, name):
+    def count_amenity(self, name):
         if name not in self.amenities.keys():
             return len(self.xml_data.xpath("//tag[@v='{}']".format(name)))
         else:
