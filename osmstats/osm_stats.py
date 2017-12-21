@@ -23,7 +23,7 @@ class OSMStats(object):
         else:
             return self.amenities[name]
 
-    def count_all_amenities(self):
+    def get_all_amenities(self):
         if not self.amenities:
             for tag in self.xml_data.xpath("//tag[@k='amenity']"):
                 if tag.attrib['v'] in self.amenities.keys():
