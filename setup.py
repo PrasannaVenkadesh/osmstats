@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='osmstats',
-      version='1.0',
+      version='1.1',
       description='Processes OpenStreetMap XML file for deriving statistics',
       author='Prasanna Venkadesh',
       author_email='prasmailme@gmail.com',
