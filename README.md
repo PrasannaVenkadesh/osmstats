@@ -22,7 +22,26 @@ To install from pypi
     from osmstats import OSMStats
 
     location = OSMStats('map.osm')
+
+    # collection of all contributors with count
     location.get_contributors()
 
-    location.count_all_amenities()
-    location.count_amentiy("pharmacy")
+    # total count of a feature
+    location.get_count('amenity')
+
+    # total count of a specific sub-feature
+    location.get_count('amenity', 'pharmacy')
+
+    # collection of all sub-feature of this feature with count
+    location.get_feature('shop')
+
+    # result of all get_feature() so far
+    location.details
+
+    # list of supported features
+    from osmstats import OSM_FEATURES
+    print(OSM_FEATURES.keys())
+
+    # dump the data as json
+    import json
+    json.dumps(location.details)

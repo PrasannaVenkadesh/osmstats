@@ -44,7 +44,11 @@ class OSMStats(object):
 
     def get_feature(self, feature_name):
         '''Returns sub-features of the feature with
-           individual count for each sub-features
+           individual count for each sub-features.
+
+           This method also incrementally builds the
+           self.details dictionary with new feature names
+           if not already present.
 
            :param feature_name: name of the OSM feature
 
@@ -54,6 +58,7 @@ class OSMStats(object):
         '''
         if feature_name not in OSM_FEATURES:
             return "Unknown feature %s" %feature_name
+
         if feature_name not in self.details:
             self.details[feature_name] = {}
             for tag in self.xml_data.xpath("//tag[@k='%s']" %feature_name):
