@@ -1,3 +1,10 @@
+'''
+These features and their sub-features are the reflection
+of Mapping Features in OSM as mentioned in their wiki.
+
+Refer: http://wiki.openstreetmap.org/wiki/Map_Features
+'''
+
 OSM_FEATURES = {
         "aerialway": ["cable_car", "gondola",
                       "chair_lift", "mixed_lift",
