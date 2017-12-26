@@ -30,6 +30,9 @@ To install into a specific path
 
     location = OSMStats('/path/to/map.osm')
 
+    # get lat, lon of this map data
+    location.bounds
+
     # collection of all contributors with count
     location.get_contributors()
 
