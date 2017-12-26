@@ -1,6 +1,10 @@
-## Python package for parsing OpenStreetMap XML data and to derive statistics out of it.
+### osmstats is a python package for parsing OpenStreetMap XML data and to derive statistics out of it.
 
 **Install**
+
+To install from pypi
+
+    pip install osmstats
 
 To install from this source code
 
@@ -10,10 +14,13 @@ To install into a specific path
 
     pip install -t <path> .
 
-To install from pypi
+----
 
-    pip install osmstats
+**Where to Download OSM Data?**
 
+1. Visit [this link](www.openstreetmap.org/export).
+2. Manually select your area.
+3. Export!
 
 ----
 
@@ -21,7 +28,7 @@ To install from pypi
 
     from osmstats import OSMStats
 
-    location = OSMStats('map.osm')
+    location = OSMStats('/path/to/map.osm')
 
     # collection of all contributors with count
     location.get_contributors()
