@@ -18,7 +18,7 @@ To install into a specific path
 
 **Where to Download OSM Data?**
 
-1. Visit [this link](www.openstreetmap.org/export).
+1. Visit [this link](http://www.openstreetmap.org/export).
 2. Manually select your area.
 3. Export!
 
