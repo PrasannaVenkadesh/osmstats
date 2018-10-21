@@ -22,6 +22,14 @@ To install into a specific path
 2. Manually select your area.
 3. Export!
 
+**Exporting OSM data options**
+1. Overpass API - Download this bounding box from a mirror of the OpenStreetMap database
+2. Planet OSM - Regularly updated copies of the complete OpenStreetMap database
+Geofabrik Downloads
+3. Regularly - updated extracts of continents, countries, and selected cities
+4. [Other Sources](https://wiki.openstreetmap.org/wiki/Download) - Additional sources listed on the OpenStreetMap wiki 
+
+![osm_export](https://github.com/manimaran96/osmstats/blob/master/osm_export.png)
 ----
 
 **Usage**
