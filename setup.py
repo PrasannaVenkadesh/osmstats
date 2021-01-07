@@ -6,7 +6,7 @@ setup(name='osmstats',
       author='Prasanna Venkadesh',
       author_email='prasmailme@gmail.com',
       url='https://github.com/PrasannaVenkadesh/osmstats',
-      install_requires=['lxml==4.1.1'],
+      install_requires=['lxml==4.6.2'],
       python_requires='>=2.7',
       packages=find_packages(exclude=['contrib', 'docs', 'tests']),
       classifiers=[
